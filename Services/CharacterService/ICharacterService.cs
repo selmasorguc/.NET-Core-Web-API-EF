@@ -1,12 +1,19 @@
 using System.Collections.Generic;
+using System.Threading.Tasks;
+using Dtos.CharacterDtos;
 using Models;
 
 namespace Services.CharacterService
 {
     public interface ICharacterService
     {
-        List<Character> GetAllCharacters();
-        Character GetCharacter(int id);
-        List<Character> AddNewCharacter(Character character);
+        Task<ServiceResponse<List<GetCharacterDto>>> GetAllCharacters();
+        Task<ServiceResponse<GetCharacterDto>> GetCharacter(int id);
+        Task<ServiceResponse<List<GetCharacterDto>>> AddNewCharacter(AddCharacterDto character);
+
+        Task<ServiceResponse<GetCharacterDto>> UpdateCharacter(UpdateCharacterDto updatedCharacter);
+
+        Task<ServiceResponse<List<GetCharacterDto>>> DeleteCharacter(int id);
+
     }
 }
