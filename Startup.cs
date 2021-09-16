@@ -38,6 +38,7 @@ namespace _NET_Core_Web_API_EF
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "_NET_Core_Web_API_EF", Version = "v1" });
             });
             services.AddScoped<ICharacterService, CharacterService>();
+            services.AddScoped<IAuthRepository, AuthRepository>();
             services.AddAutoMapper(typeof(Startup));
         }
 

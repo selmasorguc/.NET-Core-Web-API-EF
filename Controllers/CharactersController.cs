@@ -17,18 +17,21 @@ namespace Controllers
             _characterService = characterService;
         }
 
+        //GET ALL Characters
         [HttpGet]
         public async Task<ActionResult<ServiceResponse<List<GetCharacterDto>>>> GetAllCharacters()
         {
             return Ok(await _characterService.GetAllCharacters());
         }
 
+        //GET Character BY ID
         [HttpGet("/{id}")]
         public async Task<ActionResult<ServiceResponse<GetCharacterDto>>> GetCharacterById(int id)
         {
             return Ok(await _characterService.GetCharacter(id));
         }
 
+        //ADD new Character
         [HttpPost("add-character")]
         public async Task<ActionResult<ServiceResponse<List<GetCharacterDto>>>> AddCharacter(
             AddCharacterDto character)
@@ -36,6 +39,7 @@ namespace Controllers
             return Ok(await _characterService.AddNewCharacter(character));
         }
 
+        //UPDATE Character
         [HttpPut("update-character")]
         public async Task<ActionResult<ServiceResponse<GetCharacterDto>>> UpdateCharacter(
             UpdateCharacterDto character)
@@ -47,6 +51,7 @@ namespace Controllers
             return Ok(response);
         }
 
+        //DELETE Character
         [HttpDelete("delete-character/{id}")]
         public async Task<ActionResult<ServiceResponse<List<GetCharacterDto>>>> DeleteCharacter(
             int id)
